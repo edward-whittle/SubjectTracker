@@ -5,19 +5,22 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.uni.subjecttracker.exceptions.ResourceNotFoundException;
 import com.uni.subjecttracker.models.Student;
 import com.uni.subjecttracker.repositories.StudentRepository;
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 @RestController
 @RequestMapping("/api")
 public class StudentController
@@ -56,5 +59,16 @@ public class StudentController
     public Student createStudent(@Valid @RequestBody Student student) 
 	{	
         return studentRepository.save(student);
+    }
+	
+    @DeleteMapping("/deletestudent")
+    public ResponseEntity<?> deleteStudent(@RequestParam(value = "id") Integer studentID) 
+    {
+        Student student = studentRepository.findById(studentID)
+                .orElseThrow(() -> new ResourceNotFoundException("Student", "id", studentID));
+
+        studentRepository.delete(student); 
+
+        return ResponseEntity.ok().build();
     }
 }
