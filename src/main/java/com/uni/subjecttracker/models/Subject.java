@@ -24,12 +24,15 @@ public class Subject{
     
     private Integer studentID;
     
+    private Integer credits;
+    
     public Subject() {}
     
     //Getters and Setters
-    public Subject(String inputSubjectName, Integer inputStudentID) {
+    public Subject(String inputSubjectName, Integer inputStudentID, Integer inputCredits) {
     	this.subjectName = inputSubjectName;
     	this.studentID = inputStudentID;
+    	this.credits = inputCredits;
     }
     
     public void setSubjectID(Integer inputSubjectID) {
@@ -54,5 +57,13 @@ public class Subject{
     
     public Integer getStudentId() {
     	return this.studentID;
+    }
+    
+    public void setCredits(Integer inputCredits) {
+    	this.credits = inputCredits;
+    }
+    
+    public Integer getCredits() {
+    	return this.credits;
     }
 }
