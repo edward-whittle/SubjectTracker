@@ -32,6 +32,14 @@ public class Subject{
     	this.studentID = inputStudentID;
     }
     
+    public void setSubjectID(Integer inputSubjectID) {
+    	this.subjectID = inputSubjectID;
+    }
+    
+    public Integer getSubjectID() {
+    	return this.subjectID;
+    }
+    
     public void setSubjectName(String inputSubjectName) {
     	this.subjectName = inputSubjectName;
     }

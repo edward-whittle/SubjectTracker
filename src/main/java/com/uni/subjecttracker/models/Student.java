@@ -29,6 +29,14 @@ public class Student{
     	this.studentName = inputStudentName;
     }
     
+    public void setStudentID(Integer inputStudentID) {
+    	this.studentID = inputStudentID;
+    }
+    
+    public Integer getStudentID() {
+    	return this.studentID;
+    }
+    
     public void setStudentName(String inputStudentName) {
     	this.studentName = inputStudentName;
     }
