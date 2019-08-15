@@ -22,7 +22,6 @@ public class Subject{
     @Size(min=3, max = 255)
     private String subjectName;
     
-    @NotBlank
     private Integer studentID;
     
     public Subject() {}
